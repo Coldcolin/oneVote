@@ -42,7 +42,7 @@ const HomePage = () => {
   const voteCandidate = async(cand)=>{
       const canId = cand
       const count = 1
-      const res = await axios.post(`http://localhost:7777/api/Vote/${canId}/${myID}/${id}`, {count: count})
+      const res = await axios.post(`https://onevoteback.herokuapp.com/api/Vote/${canId}/${myID}/${id}`, {count: count})
       console.log(res)
       // navigate(-1)
   }
@@ -59,7 +59,7 @@ const HomePage = () => {
           {
             data?.map((props)=>(
               <Card key={props._id}>
-            <Image src={`http://localhost:7777/${props.image}`} alt="Profile picture"/>
+            <Image src={props.image} alt="Profile picture"/>
             <Name>{props.name}</Name>
             <Title>{props.manifesto}</Title>
             <Votes onClick={()=> {

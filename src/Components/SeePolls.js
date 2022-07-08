@@ -28,7 +28,7 @@ const SeePolls = () => {
   const deleteElection = async (id)=>{
     try{
       const elect = id
-      await axios.delete(`http://localhost:7777/api/Election/${ID}/election/${elect}`)
+      await axios.delete(`https://onevoteback.herokuapp.com/api/Election/${ID}/election/${elect}`)
     }catch(error){
       if(error.response){
         console.log(error.response.message)

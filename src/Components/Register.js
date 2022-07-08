@@ -40,7 +40,7 @@ const Register = () => {
             setClicked(true)
         const {name, email, password} = data
     
-        await axios.post("http://localhost:7777/api/register/user", {
+        await axios.post("https://onevoteback.herokuapp.com/api/register/user", {
             name,
             email,
             password

@@ -44,7 +44,7 @@ const Create = ()=>{
           "content-type": "multipart/formData"
         }
       }
-      await axios.post(`http://localhost:7777/Candidate/${id}`, formData, config)
+      await axios.post(`https://onevoteback.herokuapp.com/Candidate/${id}`, formData, config)
       reset()
       window.location.reload()
       }catch(error){
@@ -98,7 +98,7 @@ const Create = ()=>{
         { 
           data?.map((props)=>(
           <Cards key={props._id}>
-            <Images src={`http://localhost:7777/${props.image}`} alt="Profile picture"/>
+            <Images src={props.image} alt="Profile picture"/>
             <Names> {props.name}</Names>
             <Titles> {props.manifesto}</Titles>
             <Votes>Votes: 0</Votes>

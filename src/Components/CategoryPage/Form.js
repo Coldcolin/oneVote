@@ -20,7 +20,7 @@ const Form = () => {
         console.log(data)
         console.log(id)
         const {position} = data
-        await axios.post(`http://localhost:7777/Category/${id}`,{
+        await axios.post(`https://onevoteback.herokuapp.com/Category/${id}`,{
             position
         })
         reset()

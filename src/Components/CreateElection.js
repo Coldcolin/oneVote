@@ -25,7 +25,7 @@ const CreateElection = () => {
         try{
             setToggle(!toggle)
         const {name, description} = data
-        await axios.post(`http://localhost:7777/api/${myID}`,{
+        await axios.post(`https://onevoteback.herokuapp.com/api/${myID}`,{
             name, description
         })
         dispatch(changeId())
@@ -59,7 +59,11 @@ export default CreateElection
 
 const Container = styled.div`
     width: 100%;
-    height: calc(100vh - 70px) ;
+    height: 100vh ;
+    background-image: url("/images/counter-back-img.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 `
 const Wrapper = styled.div`
     width: 100%;
@@ -79,6 +83,12 @@ const Card = styled.form`
     align-items: center;
     border-top: 4px solid rgba(153, 82, 208, 0.9);
     box-shadow: 0px 3px 10px rgba(0,0,0,0.6);
+
+    backdrop-filter: blur(5px) saturate(200%);
+    -webkit-backdrop-filter: blur(5px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    /* border: 1px solid rgba(209, 213, 219, 0.3); */
 
     @media Screen and (max-width: 1024px){
         width: 70%;

@@ -11,7 +11,7 @@ const Results = () => {
 
     const getResults = async()=>{
         try{
-          const res = await axios.get(`http://localhost:7777/Results/${id}`)
+          const res = await axios.get(`https://onevoteback.herokuapp.com/Results/${id}`)
           setData(res.data.data.candidates)
           // console.log(res.data.data.candidates)
         }catch(error){
@@ -46,9 +46,9 @@ const Results = () => {
           {
               data?.map((props)=>(
                 <Card key={props._id}>
-            <Image src={`http://localhost:7777/${props.image}`} alt="Profile picture"/>
+            <Image src={props.image} alt="Profile picture"/>
             <Name>{props.name}</Name>
-            <Title>{props.position}</Title>
+            {/* <Title>{props.position}</Title> */}
             <Votes>Votes: {props.votes.length}</Votes>
           </Card>
               ))
