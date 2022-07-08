@@ -163,7 +163,7 @@ const Buttons = styled.button`
 const Div = styled.div`
     font-size: 30px;
     font-weight: bold;
-    color: rgba(100, 100, 100, 0.9);
+    color: white;
     font-family: poppins;
     text-align: center;
     margin-bottom: 20px;
@@ -179,7 +179,7 @@ const Div = styled.div`
 const Labeler = styled.label`
     font-size: 16px;
     font-family: poppins;
-    color: rgba(125, 125, 125, 0.9);
+    color: black;
     width: 400px;
     padding: 5px 0;
 

@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import styled from "styled-components"
 import logo from "./Images/oneVoteLogo.svg"
+import { BiMenuAltLeft } from "react-icons/bi";
+import {GrMenu} from "react-icons/gr"
 import { NavLink, useNavigate, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { signOut } from "./Global/IdReducer"
 import MenuIcon from "@mui/icons-material/Menu"
 import Swal from 'sweetalert2'
+import Side from "./SideHeader"
 
 const Header = ({bc}) => {
     const navigate  = useNavigate()
@@ -49,12 +52,33 @@ const Header = ({bc}) => {
                                 })
                                 navigate("/")
 							}}
-                    >log Out</Signs>}
+                    >log Out</Signs>
+                    }
                     
             </Holders>
             <MenuHolder>
-            <MenuIcon/>
+            {/* <MenuIcon/> */} <Burger>
+            <Men
+              id="bar"
+              onClick={() => {
+                document.getElementById("display").style.top = "0px";
+                document.getElementById("bar").style.display = "none";
+                document.getElementById("times").style.display = "block";
+              }}
+            />
+            <CancleIcon
+              id="times"
+              onClick={() => {
+                document.getElementById("display").style.top = "-1000px";
+                document.getElementById("bar").style.display = "block";
+                document.getElementById("times").style.display = "none";
+              }}
+            />
+          </Burger>
             </MenuHolder>
+            <SideMenu id="display">
+        <Side />
+      </SideMenu>
         </Wrapper>
     </Container>
   )
@@ -287,3 +311,51 @@ const MenuHolder = styled.div`
         color: white;
     }
 `
+
+
+const Burger = styled.div`
+  display: none;
+  @media screen and (max-width: 768px) {
+    /* width: calc(100% - 30%); */
+    height: 70px;
+    padding-right: 10px;
+    left:90%;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-bottom: 30px; */
+    /* position: fixed; */
+    top: 0;
+    padding:0 10px;
+  }
+`;
+
+const Men = styled(GrMenu)`
+  font-size: 30px;
+  @media(max-width:800px){
+    font-size:20px;
+  }
+`;
+
+const CancleIcon = styled(BiMenuAltLeft)`
+  font-size: 30px;
+  display: none;
+  @media(max-width:800px){
+    font-size:20px;
+  }
+  `
+
+  const SideMenu = styled.div`
+  width:250px;
+  height: 700px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: -3000px;
+  z-index: 100;
+  transition: all 2s ease;
+  left:75%;
+  @media(max-width:800px){
+    left:3%;
+  }
+`;

@@ -40,7 +40,11 @@ export default ViewElections
 
 const Container = styled.div`
     width: 100%;
-    height: calc(100vh - 70px) ;
+    height: 100vh;
+    background-image: url("/images/banner-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 `
 const Wrapper = styled.div`
     width: 100%;
@@ -60,6 +64,11 @@ const Card = styled.form`
     align-items: center;
     border-top: 4px solid rgba(153, 82, 208, 0.9);
     box-shadow: 0px 3px 10px rgba(0,0,0,0.6);
+
+    backdrop-filter: blur(5px) saturate(200%);
+    -webkit-backdrop-filter: blur(5px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
 
     @media Screen and (max-width: 1024px){
         width: 70%;
@@ -128,7 +137,7 @@ const Span = styled(Link)`
 const Div = styled.div`
     font-size: 30px;
     font-weight: bold;
-    color: rgba(125, 125, 125, 0.9);
+    color: white;
     font-family: poppins;
     text-align: center;
     margin-bottom: 20px;
@@ -143,7 +152,7 @@ const Div = styled.div`
 const Labeler = styled.label`
     font-size: 16px;
     font-family: poppins;
-    color: rgb(49,53,55);
+    color: black;
     font-weight: 500;
     width: 400px;
     padding: 5px 0;
