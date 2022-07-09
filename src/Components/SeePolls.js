@@ -14,7 +14,7 @@ const SeePolls = () => {
 
   const getPolls =async()=>{
     try{
-      const res = await axios.get(`http://localhost:7777/api/Election/${ID}`)
+      const res = await axios.get(`https://onevoteback.herokuapp.com/api/Election/${ID}`)
       setPolls(res.data.data)
     }catch(error){
       if(error.response){
