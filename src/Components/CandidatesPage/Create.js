@@ -69,7 +69,7 @@ const Create = ()=>{
       }
     })
     const getCandidate = async()=>{
-      const res = await axios.get(`https://onevoteback.herokuapp.com/${id}`)
+      const res = await axios.get(`https://onevoteback.herokuapp.com/Candidates/${id}`)
       setData(res.data.data)
     }
 
