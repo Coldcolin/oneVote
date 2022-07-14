@@ -45,7 +45,7 @@ const SeePolls = () => {
       <Wrapper>
       <Vote onClick={()=>{navigate(-1)}}>Back to Home</Vote>
         {
-          admin? <Text><span>These are the Polls Available</span></Text>: <Text><span>There are no Polls Available</span></Text>
+          admin? <Text><span>These are the Polls Available</span></Text>: <Text><span>These are the Polls Available</span></Text>
         }
           <Holder>
           {
@@ -57,7 +57,7 @@ const SeePolls = () => {
                 myID?  <Votes to={`/categories/${props._id}`}>Start Voting</Votes>:  <Votes to={`/register`}>Sign up to vote</Votes>
               }
               {
-                myID?  <Voter onClick={()=> {
+                admin?  <Voter onClick={()=> {
                   deleteElection(props._id)
                   window.location.reload()
                   }}>Delete Election</Voter>:  null
