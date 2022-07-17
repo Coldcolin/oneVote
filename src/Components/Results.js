@@ -13,7 +13,7 @@ const Results = () => {
         try{
           const res = await axios.get(`https://onevoteback.herokuapp.com/Results/${id}`)
           setData(res.data.data.candidates)
-          // console.log(res.data.data.candidates)
+          console.log(res.data.data.candidates)
         }catch(error){
           if (error.response) {
             // The request was made and the server responded with a status code
@@ -40,7 +40,7 @@ const Results = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>These are the Results</Text>
+        {data?<Text>These are the Results</Text>: <Text>There are no Results yet</Text>}
         <Vote onClick={()=>{navigate(-1)}}>Back to Categories</Vote>
           <Holder>
           {

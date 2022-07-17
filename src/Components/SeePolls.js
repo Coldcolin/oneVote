@@ -228,7 +228,7 @@ const Voter = styled.div`
 `
 const Vote = styled.div`
 text-decoration: none;
-  width: 10%;
+  width: 150px;
   min-height: 40px;
   display:flex;
   border-radius: 3px;

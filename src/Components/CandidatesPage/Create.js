@@ -7,6 +7,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import {Link, useParams, useNavigate} from "react-router-dom"
 import axios from "axios"
+import Swal from 'sweetalert2'
 
 
 const Create = ()=>{
@@ -46,6 +47,11 @@ const Create = ()=>{
       }
       await axios.post(`https://onevoteback.herokuapp.com/Candidate/${id}`, formData, config)
       reset()
+      Swal.fire(
+        'Success',
+        'Added Candidate',
+        'success'
+    )
       window.location.reload()
       }catch(error){
         if (error.response) {
@@ -391,7 +397,7 @@ const Buttoner = styled.div`
 const Voter = styled.div`
   margin-top: 100px;
   text-decoration: none;
-  width: 10%;
+  width: 100px;
   min-height: 40px;
   display:flex;
   justify-content:center;

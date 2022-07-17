@@ -46,9 +46,15 @@ const Card = styled.form`
 `
 const Div = styled.div`
     font-size: 30px;
-    color: white;
+    color: black;
+    @media Screen and (max-width: 1024px){
+        text-align: center;
+    }
 `
 const Small = styled.div`
     font-size: 20px;
     color: rgba(153, 82, 208, 0.9);
+    @media Screen and (max-width: 1024px){
+        text-align: center;
+    }
 `

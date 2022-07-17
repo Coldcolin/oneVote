@@ -48,7 +48,6 @@ export default Categories
 const Container = styled.div`
   width: 100%;
   min-height: calc (100vh - 70px);
-  
 `
 const Wrapper = styled.div`
   width: 100%;
@@ -71,7 +70,8 @@ const Text = styled.div`
   };
 
   @media Screen and (max-width: 425px){
-    font-size: 30px;
+    width: 80%;
+    font-size: 25px;
   }
 `
 const Holder = styled.div`
@@ -88,6 +88,7 @@ const Card = styled.div`
     margin: 10px;
     border-radius: 3px;
     display: flex;
+    padding: 10px 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -107,7 +108,7 @@ const Name = styled.div`
   text-align: center;
   justify-content:center;
   align-items: center;
-  color: lightgrey;
+  color: white;
   font-size: 20px;
   border-radius: 2px;
   margin-top: 5px;
@@ -151,7 +152,7 @@ const Votes = styled(Link)`
   display:flex;
   justify-content:center;
   align-items: center;
-  color: lightgrey;
+  color: white;
   font-size: 20px;
   margin-top: 5px;
   background-color: rgba(153, 82, 208, 0.7);
@@ -167,12 +168,12 @@ const Votes = styled(Link)`
 `
 const Vote = styled(Link)`
 text-decoration: none;
-  width: 20%;
+  width: 150px;
   min-height: 40px;
   display:flex;
   justify-content:center;
   align-items: center;
-  color: lightgrey;
+  color: white;
   font-size: 20px;
   margin-top: 5px;
   background-color: rgba(153, 82, 208, 0.7);

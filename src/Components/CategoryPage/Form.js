@@ -5,15 +5,18 @@ import * as yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver} from "@hookform/resolvers/yup"
 import { AuthContext } from "../Global/AuthProvider"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
+import Swal from 'sweetalert2'
 
 const Form = () => {
     const { saveUser } = useContext(AuthContext)
     const {id} = useParams()
+    const navigate = useNavigate()
     const createSchema = yup.object().shape({
         position: yup.string().required("This has to be filled")
     })
     const {register, reset, handleSubmit, formState:{errors}}= useForm({resolver: yupResolver(createSchema)})
+
 
     const addCandidate = handleSubmit(async (data) =>{
         // const id = saveUser._id
@@ -24,6 +27,11 @@ const Form = () => {
             position
         })
         reset()
+        Swal.fire(
+            'Success',
+            'Added Category',
+            'success'
+        )
         window.location.reload()
     })
 
@@ -35,6 +43,7 @@ const Form = () => {
                     <Input placeholder="Category Name" {...register("position")}/>
                     <Buttons type='submit'>Add</Buttons>
             </Card>
+            <Buttons1 onClick={()=> navigate("/")}>Done</Buttons1>
         </Wrapper>
     </Container>
   )
@@ -136,6 +145,29 @@ const Buttons = styled.button`
         height: 30px;
         width: 80%;
         padding: 0;
+    }
+`
+const Buttons1 = styled.button`
+    display: none;
+    @media Screen and (max-width: 768px){
+        display: flex;
+        background-color: rgb(90,37,131);
+        font-size: 18px;
+        font-family: poppins;
+        border-radius: 5px;
+        padding: 10px 50px;
+        border: none;
+        transform: scale(1);
+        transition: all 350ms;
+        margin-top: 20px;
+        color: rgba(225, 225, 225, 0.9);
+        :hover{
+        cursor: pointer;
+        transform: scale(1.005);
+        transition: all 350ms;
+        background-color: rgba(153, 82, 220, 0.9);
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.8);
+    }
     }
 `
 const Div = styled.div`

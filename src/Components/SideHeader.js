@@ -5,10 +5,13 @@ import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import { signOut } from "./Global/IdReducer"
 
-const SideHeader = () => {
+const SideHeader = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const myID = useSelector((state) => state.Id.Id);
+  const close = () =>{
+    props.setToggle(false)
+}
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -25,13 +28,13 @@ const SideHeader = () => {
       <Wrapp>
         <Right>
           <Navig>
-          <Nav to="/">Home</Nav>
-          <Nav to="/Create">Create Election</Nav>
-          <Nav to="/ElectTok">Join Election</Nav>
-          <Nav to="/ResultsTok">See Results</Nav>
-          {!myID? <Nav to="/register">Register</Nav>: null}
+          <Nav to="/" onClick={close}>Home</Nav>
+          <Nav to="/Create" onClick={close}>Create Election</Nav>
+          <Nav to="/ElectTok" onClick={close}>Join Election</Nav>
+          <Nav to="/ResultsTok" onClick={close}>See Results</Nav>
+          {!myID? <Nav to="/register" onClick={close}>Register</Nav>: null}
                 
-                 { !myID? <Nav to="/Login">log In</Nav>:<Navi
+                 { !myID? <Nav to="/Login" onClick={close}>log In</Nav>:<Navi
           onClick={() => {
 								dispatch(signOut());
                                 Toast.fire({
@@ -51,42 +54,7 @@ const SideHeader = () => {
 }
 
 export default SideHeader
-const Hld = styled.div`
-  width: 11%;
-  /* background: plum; */
-  border-right: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  display: none;
-  :hover {
-    cursor: pointer;
-  }
-`;
-const Button = styled.div`
-  width: 150px;
-  height: 50px;
-  background: #3e435e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* border-radius: 5px; */
-  color: #fff;
 
-  &.active {
-    height: 3px;
-    width: 80%;
-    transition: all 550ms;
-    transform: scale(1);
-    transform-origin: center left;
-  }
-
-  :hover {
-    cursor: pointer;
-    transform: scale(1.02);
-  }
-`;
 const Right = styled.div`
   /* background: pink; */
   display: none;
@@ -107,15 +75,21 @@ const Nav = styled(Link)`
   height: 60%;
   width: 100%;
   /* background:yellow; */
+
+  margin: 20px 0 ;
   display: flex;
   align-items: center;
-  /* color: #009587; */
+  justify-content: center;
+  border-radius: 3px; ;
   color:#fff;
   :hover{
-    background:#009587;
+    /* height: 20%; */
+    background-color: rgb(90,37,131);
+
   }
 
   &.active {
+   
     border-bottom: 1px solid skyblue;
     color: skyblue;
 
@@ -140,12 +114,12 @@ const Navi = styled.div`
   /* color: #009587; */
   color:#fff;
   :hover{
-    background:#009587;
+    /* background:#009587; */
   }
 
   &.active {
-    border-bottom: 1px solid skyblue;
-    color: skyblue;
+    /* border-bottom: 1px solid skyblue; */
+    /* color: skyblue; */
 
     transition: all 550ms;
     transform: scale(1);
@@ -166,18 +140,23 @@ const Navig = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    height: 50%;
+    height: 80%;
     width: 80%;
+    /* background: yellow; */
   }
 `;
 
 const Container = styled.div`
-  width: 100%;
+  display: none ;
+
+  @media Screen and (max-width: 768px){
+    width: 100%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  }
   /* margin-bottom: 50px; */
   /* background: darkcyan; */
 `;

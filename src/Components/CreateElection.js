@@ -92,7 +92,7 @@ const Card = styled.form`
 
     @media Screen and (max-width: 1024px){
         width: 70%;
-        min-height: 80%;
+        min-height: 60%;
     }
 `
 const Input = styled.input`
@@ -130,7 +130,7 @@ const Inputs = styled.textarea`
         } 
 
         @media Screen and (max-width: 768px){
-        height: 30px;
+        height: 80px;
         width: 80%;
     }
 `

@@ -42,7 +42,7 @@ const ResultsCategories = () => {
       <Wrapper>
       <Vote onClick={()=>{navigate(-1)}}>Back to Home</Vote>
         {
-          admin? <Text><span>These are the Polls Available</span></Text>: <Text><span>There are no Polls Available</span></Text>
+          polls? <Text><span>These are the Polls Available</span></Text>: <Text><span>There are no Polls Available</span></Text>
         }
           <Holder>
           {
@@ -197,7 +197,7 @@ const Votes = styled(Link)`
 `
 const Vote = styled.div`
 text-decoration: none;
-  width: 10%;
+  width: 150px;
   min-height: 40px;
   display:flex;
   border-radius: 3px;

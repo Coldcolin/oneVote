@@ -16,6 +16,10 @@ const Header = ({bc}) => {
     const myID = useSelector((state) => state.Id.Id);
     const dispatch = useDispatch();
 
+    const changeBar = ()=>{
+        setToggle(!toggle)
+    }
+
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -57,28 +61,30 @@ const Header = ({bc}) => {
                     
             </Holders>
             <MenuHolder>
-            {/* <MenuIcon/> */} <Burger>
-            <Men
-              id="bar"
-              onClick={() => {
-                document.getElementById("display").style.top = "0px";
-                document.getElementById("bar").style.display = "none";
-                document.getElementById("times").style.display = "block";
-              }}
-            />
-            <CancleIcon
-              id="times"
-              onClick={() => {
-                document.getElementById("display").style.top = "-1000px";
-                document.getElementById("bar").style.display = "block";
-                document.getElementById("times").style.display = "none";
-              }}
-            />
+            {/* <MenuIcon/> */} 
+            <Burger>
+            {toggle === false? <Men
+            //   id="bar"
+            //   onClick={() => {
+            //     document.getElementById("display").style.top = "0px";
+            //     document.getElementById("bar").style.display = "none";
+            //     document.getElementById("times").style.display = "block";
+            //   }}
+            onClick={() => {changeBar()}}
+            />: <CancleIcon
+            //   id="times"
+            //   onClick={() => {
+            //     document.getElementById("display").style.top = "-1000px";
+            //     document.getElementById("bar").style.display = "block";
+            //     document.getElementById("times").style.display = "none";
+            //   }}
+            onClick={() => {changeBar()}}
+            />}
           </Burger>
             </MenuHolder>
-            <SideMenu id="display">
-        <Side />
-      </SideMenu>
+            {toggle?<SideMenu >
+                <Side setToggle ={setToggle} toggle={toggle}/>
+            </SideMenu>: null}
         </Wrapper>
     </Container>
   )
@@ -340,7 +346,7 @@ const Men = styled(GrMenu)`
 
 const CancleIcon = styled(BiMenuAltLeft)`
   font-size: 30px;
-  display: none;
+  /* display: none; */
   @media(max-width:800px){
     font-size:20px;
   }
@@ -348,14 +354,14 @@ const CancleIcon = styled(BiMenuAltLeft)`
 
   const SideMenu = styled.div`
   width:250px;
-  height: 700px;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
-  top: -3000px;
+  top: 10px;
   z-index: 100;
   transition: all 2s ease;
-  left:75%;
-  @media(max-width:800px){
+  /* left:75%; */
+  /* @media(max-width:800px){
     left:3%;
-  }
+  } */
 `;

@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { useSelector } from "react-redux"
 import {Link, useParams, useNavigate} from "react-router-dom"
 import axios from "axios"
+import Swal from 'sweetalert2'
+
 
 const HomePage = () => {
   const {id} = useParams()
@@ -40,10 +42,38 @@ const HomePage = () => {
   // }
   
   const voteCandidate = async(cand)=>{
-      const canId = cand
+      try{
+        const canId = cand
       const count = 1
       const res = await axios.post(`https://onevoteback.herokuapp.com/api/Vote/${canId}/${myID}/${id}`, {count: count})
       console.log(res)
+      }catch(error){
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          // Toast.fire({
+          //     icon: 'fail',
+          //     title: error.response.data.message
+          // })
+          Swal.fire(
+            'Sorry',
+            'Cannot vote twice in same category',
+            'fail'
+        )
+          // alert(error.response.data.message);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+          } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+              } else {
+                  // Something happened in setting up the request that triggered an Error
+                  console.log('Error', error.message);
+              }
+              console.log(error.config);
+      }
       // navigate(-1)
   }
 

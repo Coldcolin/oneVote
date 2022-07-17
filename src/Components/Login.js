@@ -184,6 +184,9 @@ const Span = styled(Link)`
     span{
         color: rgb(90,37,131);
     }
+    @media Screen and (max-width: 1024px){
+        text-align: center;
+    }
 `
 const Div = styled.div`
     font-size: 30px;
