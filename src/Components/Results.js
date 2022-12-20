@@ -11,7 +11,7 @@ const Results = () => {
 
     const getResults = async()=>{
         try{
-          const res = await axios.get(`https://onevoteback.herokuapp.com/Results/${id}`)
+          const res = await axios.get(`https://onevote-api.onrender.com/Results/${id}`)
           setData(res.data.data.candidates)
           console.log(res.data.data.candidates)
         }catch(error){

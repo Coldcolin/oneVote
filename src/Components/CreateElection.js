@@ -25,7 +25,7 @@ const CreateElection = () => {
         try{
             setToggle(!toggle)
         const {name, description} = data
-        await axios.post(`https://onevoteback.herokuapp.com/api/${myID}`,{
+        await axios.post(`https://onevote-api.onrender.com/api/${myID}`,{
             name, description
         })
         dispatch(changeId())

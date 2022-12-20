@@ -45,7 +45,7 @@ const HomePage = () => {
       try{
         const canId = cand
       const count = 1
-      const res = await axios.post(`https://onevoteback.herokuapp.com/api/Vote/${canId}/${myID}/${id}`, {count: count})
+      const res = await axios.post(`https://onevote-api.onrender.com/api/Vote/${canId}/${myID}/${id}`, {count: count})
       console.log(res)
       }catch(error){
         if (error.response) {

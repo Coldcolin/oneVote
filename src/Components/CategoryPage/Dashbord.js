@@ -8,7 +8,7 @@ const Dashbord = () => {
     const {id} = useParams()
 
     const getData = async ()=>{
-        const res = await axios.get(`https://onevoteback.herokuapp.com/Category/${id}`)
+        const res = await axios.get(`https://onevote-api.onrender.com/Category/${id}`)
         setData(res.data.data)
     }
 

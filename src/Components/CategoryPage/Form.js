@@ -23,7 +23,7 @@ const Form = () => {
         console.log(data)
         console.log(id)
         const {position} = data
-        await axios.post(`https://onevoteback.herokuapp.com/Category/${id}`,{
+        await axios.post(`https://onevote-api.onrender.com/Category/${id}`,{
             position
         })
         reset()

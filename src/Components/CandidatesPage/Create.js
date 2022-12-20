@@ -45,7 +45,7 @@ const Create = ()=>{
           "content-type": "multipart/formData"
         }
       }
-      await axios.post(`https://onevoteback.herokuapp.com/Candidate/${id}`, formData, config)
+      await axios.post(`https://onevote-api.onrender.com/Candidate/${id}`, formData, config)
       reset()
       Swal.fire(
         'Success',
@@ -75,7 +75,7 @@ const Create = ()=>{
       }
     })
     const getCandidate = async()=>{
-      const res = await axios.get(`https://onevoteback.herokuapp.com/Candidates/${id}`)
+      const res = await axios.get(`https://onevote-api.onrender.com/Candidates/${id}`)
       setData(res.data.data)
     }
 

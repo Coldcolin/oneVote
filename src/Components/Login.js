@@ -36,7 +36,7 @@ const Login = () => {
             setToggle(!toggle)
         const {email, password} = data
 
-        const res = await axios.post("https://onevoteback.herokuapp.com/api/login", { 
+        const res = await axios.post("https://onevote-api.onrender.com/api/login", { 
             email, password
         })
         localStorage.setItem("User", JSON.stringify(res.data.data))

@@ -13,7 +13,7 @@ const ResultsCategories = () => {
 
   const getPolls =async()=>{
     try{
-        const res = await axios.get(`https://onevoteback.herokuapp.com/Category/${id}`)
+        const res = await axios.get(`https://onevote-api.onrender.com/Category/${id}`)
         setPolls(res.data.data)
     }catch(error){
         if (error.response) {

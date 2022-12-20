@@ -14,7 +14,7 @@ const SeePolls = () => {
 
   const getPolls =async()=>{
     try{
-      const res = await axios.get(`https://onevoteback.herokuapp.com/api/Election/${ID}`)
+      const res = await axios.get(`https://onevote-api.onrender.com/api/Election/${ID}`)
       setPolls(res.data.data)
     }catch(error){
       if(error.response){
@@ -28,7 +28,7 @@ const SeePolls = () => {
   const deleteElection = async (id)=>{
     try{
       const elect = id
-      await axios.delete(`https://onevoteback.herokuapp.com/api/Election/${ID}/election/${elect}`)
+      await axios.delete(`https://onevote-api.onrender.com/api/Election/${ID}/election/${elect}`)
     }catch(error){
       if(error.response){
         console.log(error.response.message)
