@@ -16,7 +16,7 @@ const HomePage = () => {
 
   const getCandidate = async()=>{
     try{
-      const res = await axios.get(`https://onevoteback.herokuapp.com/Candidates/${id}`)
+      const res = await axios.get(`https://onevote-api.onrender.com/Candidates/${id}`)
       setData(res.data.data)
     }catch(err){
       console.log(err)
